@@ -1,5 +1,5 @@
 {% set name = "mythx-models" %}
-{% set version = "2.0.1" %}
+{% set version = "2.2.0" %}
 
 
 package:
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/mythx-models-{{ version }}.tar.gz
-  sha256: 9c98dae384e3bc2226e7bfbaaafac2e33675dfbef3258c2cedde8b0732c8b13a
+  sha256: e6494e669e67346d8b3a206ce861890c7c95f3670b69217028edd0ff3401267a
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
