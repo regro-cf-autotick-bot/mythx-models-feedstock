@@ -6,24 +6,24 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/mythx-models-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/mythx-models-{{ version }}.tar.gz
   sha256: e6494e669e67346d8b3a206ce861890c7c95f3670b69217028edd0ff3401267a
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
     - pip
     - pytest-runner
-    - python >=3.6,<4.0
+    - python {{ python_min }}
   run:
     - inflection ==0.5.1
     - jsonschema ==3.2.0
     - pydantic >=1.6.2,!=1.7,!=1.7.1,!=1.7.2,!=1.7.3,!=1.8,!=1.8.1,<2.0.0
-    - python >=3.6,<4.0
+    - python >={{ python_min }},<4.0
     - python-dateutil ==2.8.1
 
 test:
@@ -33,6 +33,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/dmuhs/mythx-models
